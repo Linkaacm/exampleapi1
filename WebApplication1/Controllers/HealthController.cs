@@ -17,7 +17,7 @@ namespace WebApplication1.Controllers
         public IActionResult Get()
         {
             var random = new Random();
-            var value = random.Next(0, 4);
+            var value = random.Next(0, 2);
             if (value == 0)
             {
                 return BadRequest($"Bad request ({value})");
