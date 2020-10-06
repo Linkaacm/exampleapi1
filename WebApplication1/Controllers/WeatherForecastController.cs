@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using CCB.Log.Standard;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -17,15 +19,20 @@ namespace WebApplication1.Controllers
 		};
 
 		private readonly ILogger<WeatherForecastController> _logger;
+		private readonly ILogging _logging;
 
-		public WeatherForecastController(ILogger<WeatherForecastController> logger)
+		public WeatherForecastController(ILogger<WeatherForecastController> logger, ILogging logging)
 		{
 			_logger = logger;
+			_logging = logging;
+
 		}
 
 		[HttpGet]
 		public IEnumerable<WeatherForecast> Get()
 		{
+			_logging.LogInfo($"[{typeof(WeatherForecastController).FullName} - {MethodBase.GetCurrentMethod().Name}] - (Se realiza loggeo" +
+				$"satisfactoriamente");
 			var rng = new Random();
 			return Enumerable.Range(1, 5).Select(index => new WeatherForecast
 			{
