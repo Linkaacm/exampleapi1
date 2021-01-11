@@ -31,8 +31,8 @@ namespace WebApplication1.Controllers
 		[HttpGet]
 		public IEnumerable<WeatherForecast> Get()
 		{
-			_logging.LogInfo($"[{typeof(WeatherForecastController).FullName} - {MethodBase.GetCurrentMethod().Name}] - (Se realiza loggeo" +
-				$"satisfactoriamente");
+			_logging.LogInfo($"[{typeof(WeatherForecastController).FullName} - {MethodBase.GetCurrentMethod().Name}] - (Se realiza loggeo " +
+				$"satisfactoriamente)");
 			var rng = new Random();
 			return Enumerable.Range(1, 5).Select(index => new WeatherForecast
 			{
