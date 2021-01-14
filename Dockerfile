@@ -6,9 +6,9 @@ WORKDIR /app
 #       io.k8s.description="container description..." \
 #       io.openshift.expose-services="8080:http,8088:https"
 
-# EXPOSE 8080
+EXPOSE 8080
 EXPOSE 8088
-# ENV ASPNETCORE_URLS=http://*:8080;https://*:8088
+ENV ASPNETCORE_URLS=http://*:8080
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
